@@ -63,18 +63,7 @@ Indexes are also not surprise free. We all know missing indexes can degrade perf
 
 Optimizing database queries fixes a majority of our problem. But there may still be room for improvement. There may be an accidentally quadratic code somewhere hiding from direct view. Or just some search loop that could be improved with a _memoized_ hash. To see these and more, we need to be able to measure the suspected chunks of our code.
 
-The easiest way of doing this is to use `Time.now` calls, which is what I did. It gives good numbers for comparison, but we need to litter our code with several of the those calls. But with the availability of the trace-point APi, we can do this much better. Instead of making changes to the code directly, we can get notified when a method gets invoked, and do the measurements there. Somewhat like this:
-
-    h = { total: 0 }
-    trace = TracePoint.new(:call, :return) do |trace|
-      return if method != 'my_slow_method'
-      h[:start] = Time.now if trace.event == :call
-      h[:total] += (Time.now - h[:start]) if trace.event == :return
-    end
-    trace.enable
-    my_slow_method
-    h[:total]
-
+The easiest way of doing this is to use `Time.now` calls, which is what I did. It gives good numbers for comparison, but we need to litter our code with several of the those calls. But with the availability of the trace-point APi, we can do this much better. Instead of making changes to the code directly, we can get notified when a method gets invoked, and do the measurements there.
 
 #### Conclusion
 
