@@ -87,7 +87,7 @@ The primary audience takeaways here are gotchas and surprises as described earli
 
 
 
-Pitch
+## Pitch
 
 (Why is this talk pertinent? What is your involvement in the topic?)
 (Explain why this talk should be considered and what makes you qualified to speak on the topic.)
@@ -98,6 +98,9 @@ Most of the talk is based on lessons from personal experience.
 
 
 
-Bio
+## Bio
 (Bio for the event program)
 (Bio is limited to 500 characters)
+
+I do Rails freelancing for a living, and help run the Ruby community in my town (@chennairb). I'm also trying to better myself at SQL. When not programming, I'm playing with my 3 year old.
+
